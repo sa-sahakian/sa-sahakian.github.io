@@ -56,6 +56,7 @@ In this section we will list the basic command whcih we will need in the future:
 to Stop and start httpd service:
 
 `sudo systemctl stop httpd`
+
 `sudo systemctl start httpd`
 
 To stop and start agian:
@@ -65,6 +66,7 @@ To stop and start agian:
 To enable and disable the Apache service:
 
 `sudo systemctl enable httpd`
+
 `sudo systemctl disable httpd`
 
 
