@@ -21,7 +21,7 @@
 title: Sako_Blogs_CIT480
 email: sako.sahakian.939@my.csun.edu
 description: >- # this means to ignore newlines until "baseurl:"
-This is the weekly blog for CIT 480 class.
+#This is the weekly blog for CIT 480 class.
 baseurl: "sa-sahakian.github.io" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
