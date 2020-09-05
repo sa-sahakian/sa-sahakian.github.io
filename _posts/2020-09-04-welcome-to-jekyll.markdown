@@ -54,13 +54,16 @@ Step three: Test the default website by typing the host IP:
 In this section we will list the basic command whcih we will need in the future:
 
 to Stop and start httpd service:
+
 `sudo systemctl stop httpd`
 `sudo systemctl start httpd`
 
 To stop and start agian:
+
 `sudo systemctl restart httpd`
 
 To enable and disable the Apache service:
+
 `sudo systemctl enable httpd`
 `sudo systemctl disable httpd`
 
