@@ -4,26 +4,64 @@ title:  "Welcome to Jekyll!"
 date:   2020-09-04 20:24:31 -0700
 categories: jekyll update
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+#How to install Apache server in CentOS 7#
 
-Jekyll requires blog post files to be named according to the following format:
+Note:
+ Apache is available with CentOS7 default repository which we can use `yum` package manager to install it. 
+ `firewalld` needs to be installed prior to installing Apache.
 
-`YEAR-MONTH-DAY-title.MARKUP`
+==>Installing Apache<==
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Step one:  Update the local Apache `httpd` package by running the following command:
 
-Jekyll also offers powerful support for code snippets:
+`sudo yum update httpd`
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+Step two: Install Apache package by using `yum` command:
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+`sudo yum install httpd`  
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+- Note: yum will install all the Apache dependencies.
+
+Step three: Open up port 80 to allow incoming http and https requests:
+ 
+`sudo firewall-cmd —permanent —add-service=http`
+`sudo firewall-cmd —permanent —add-service=https`
+
+Step four: Reload the firewall update the newly added rules:
+
+`sudo firewall-cmd —reload`
+
+
+==>Checking the web-server<==
+
+In this section we will run the service and check the initial page.
+
+Step one: Run the httpd service after the installation:
+
+`sudo systemctl start httpd`
+
+Step two: Check the service status and verify that the service is running:
+
+`sudo systemctl status httpd`
+
+Step three: Test the default website by typing the host IP:
+
+`http://Server_IP`
+
+
+==>Managing Apache Process<==
+
+In this section we will list the basic command whcih we will need in the future:
+
+to Stop and start httpd service:
+`sudo systemctl stop httpd`
+`sudo systemctl start httpd`
+
+To stop and start agian:
+`sudo systemctl restart httpd`
+
+To enable and disable the Apache service:
+`sudo systemctl enable httpd`
+`sudo systemctl disable httpd`
+
+
