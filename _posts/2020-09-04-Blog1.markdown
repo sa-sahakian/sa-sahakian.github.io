@@ -1,9 +1,0 @@
----
-layout: post
-title:  "Blog1"
-date:   2020-09-11 19:24:31 -0700
-categories: jekyll update
----
-
-
-
