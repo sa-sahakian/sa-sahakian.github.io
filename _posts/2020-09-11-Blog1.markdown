@@ -5,6 +5,7 @@ date:   2020-09-11 19:24:31 -0700
 categories: jekyll update
 ---
 
+
 #NMAP Installation and Quick User Guide Line#
 
 NMPA is one of the powerful tools used by most of the network administrators. This tools created long time ago by Gordon Lyon. This tools originally created for the Linux  but has been provided for the other majore operating system such as MAC and PC. 
@@ -57,19 +58,10 @@ After installing the NMAP in the RedHat or CentOS, we can use `MAN Page` to get 
 
 `# nmap -sV <host IP address>`
 
-#Scan for multipe ports:
+#Scan for multiple ports:
 
 `# nmap -p <port number, second port number> <Host IP address>`
 
 #Save the output in XML format:
 
 `# nmap -oX <fielname.xml> <Host IP address>`
-
-
-
-
-
-
-
-
-
