@@ -35,7 +35,7 @@ To install the NMAP or Zenmap on the RedHat or CentOS we can use `RPM` or `YUM` 
 
 - Command line to install NMAP or Zenmap by `YUM`:
 
-`yum instal nmap`
+`# yum instal nmap`
 
 After installing the NMAP in the RedHat or CentOS, we can use `MAN Page` to get help about the availble commands and features:
 
@@ -43,9 +43,29 @@ After installing the NMAP in the RedHat or CentOS, we can use `MAN Page` to get 
 
 - Some of the common command in NMAP:
 
-. Scan for the open ports: 
+1. Scan for an IP address or Host name:
 
-`# nmap --open <host IP address or network range>`
+`# nmap <Host IP address>`
+
+`# nmap <Host Name>`
+
+2. Scan for the open ports: 
+
+`# nmap -p <host IP address>`
+
+3. Identify the open services:
+
+`# nmap -sV <host IP address>`
+
+4. Scan for multipe ports:
+
+`# nmap -p <port number, second port number> <Host IP address>`
+
+5. Save the output in XML format:
+
+`# nmap -oX <fielname.xml> <Host IP address>`
+
+
 
 
 
