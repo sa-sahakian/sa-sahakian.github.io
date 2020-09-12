@@ -5,11 +5,11 @@ date:   2020-09-11 19:24:31 -0700
 categories: jekyll update
 ---
 
-==>NMAP Installation and UserGuide Line<==
+#NMAP Installation and Quick User Guide Line#
 
 NMPA is one of the powerful tools used by most of the network administrators. This tools created long time ago by Gordon Lyon. This tools originally created for the Linux  but has been provided for the other majore operating system such as MAC and PC. 
 
-NMAP provide following features:
+- NMAP provide following features:
 
 1. Port scanning
 2. Host discovery
@@ -18,24 +18,36 @@ NMAP provide following features:
 5. Scan for well-know vulnerabilities
 
 
-How to download:
+- How to download:
 
 NMAP is available for download at `https://nmap.org/download.html` in different format and versions. Alsl, there is a free graphical front and named Zenmap which can be downloaded. 
 
-How to install the NMAP on the RedHat and CentOS:
+- How to install the NMAP on the RedHat and CentOS:
 
 To install the NMAP or Zenmap on the RedHat or CentOS we can use `RPM` or `YUM` package managers.
 
-Command line to install NMAP or Zenmap by `RPM`:
+- Command line to install NMAP or Zenmap by `RPM`:
 
 `# rpm -vhU https://nmap.org/dist/nmap-4.68-1.i386.rpm`
 
 `# rpm -vhU https://nmap.org/dist/zenmap-4.68-1.noarch.rpm`
 
 
-Command line to install NMAP or Zenmap by `YUM`:
+- Command line to install NMAP or Zenmap by `YUM`:
 
 `yum instal nmap`
+
+After installing the NMAP in the RedHat or CentOS, we can use `MAN Page` to get help about the availble commands and features:
+
+`# man nmap`
+
+- Some of the common command in NMAP:
+
+. Scan for the open ports: 
+
+`# nmap --open <host IP address or network range>`
+
+
 
 
 
