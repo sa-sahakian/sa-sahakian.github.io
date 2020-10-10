@@ -21,7 +21,9 @@
 title: Sako_Blogs_CIT480
 email: sako.sahakian.939@my.csun.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  These are the weekly blogs for CIT 480 class. 
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
 baseurl: "sa-sahakian.github.io" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
