@@ -6,68 +6,17 @@ categories: jekyll update
 ---
 
 
-==>Docker File an dhow to create it<==
+==>Ansible Playbooks<==
 
-- Docker File
-Docker file is a special file containing all the instruction to automate  a built. This file is a normal text file including commands in a special format. 
-We can create the Docker file by using `touch` command and edit it using `vim`.
+- What is Ansible and its playbook:
 
-
-- Docker file requires special format which we have to follow.
-
-`INSTRUCTION arguments`
-
-Note: The instruction is not case sensitive but because of the convention we will use uppercase to separate them from arguments. 
-
-Docker file runs instruction on order. Normally start with FROM. 
+Ansible is automation engine to automate:
+. Cloud Provisioning
+. Configuration Management
+. Application Deployment
+. Intra Service Orchestration
 
 
-# FROM #
-The `FROM` instruction initialized a new build and set the base image for subsequent instructions. 
-
-`FROM ubunto:18:04`
-
-
-# Comment #
-To add comment we can use `#` and type the comment right after it. Docker will remove the comment lines before executing the docker file. 
-
-
-# RUN # 
-The `RUN` instruction will execute any commands in a new layer on top of the current image and commit the results.
-
-`RUN apt-get update`
-
-
-# CMD #
-The `CMD`  will provide defaults to execute a container. 
-
-Note: We should only use one `CMD` not more than one. 
-
-`CMD <command> param1 param2`
-
-
-# LABEL # 
-The `LABEL` will add metadata to the image. 
-
-# EXPOSE #
-The `EXPOSE` will inform docker to the container is listening on a specific port numbers at the run time.
-
-`EXPOSE 80/udp`
-
-
-# ADD #
-The `ADD` instruction will copy new files, directories from local or remote sources. 
-
-`ADD <filename> /directory/`
-
-
-# WORKDIR #
-
-The `WORKDIR` instruction sets the workign directory for some other isntructions such as RUN, ADD, ...
-
-`WORKDIR /mydir`
-`RUN PWD`
-
-
-
+Ansible use simple language `YAML` in the form of Ansible playbook for automation. It doesn't required any agent installation. 
+It simply connect to the host and push out a small programs called `Ansible Modules` then execute them over SSH and remove when they are done. 
 
