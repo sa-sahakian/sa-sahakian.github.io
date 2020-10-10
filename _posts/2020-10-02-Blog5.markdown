@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 
 
-==>Ansible Playbooks<==
+==>Ansible Playbooks - Part1<==
 
 - What is Ansible and its playbook:
 
@@ -49,8 +49,11 @@ roles:
 - How to install the Ansible in Ubuntu:
 
 `$ sudo apt update`
+
 `$ sudo apt install software-properties-common`
+
 `$ sudo apt-add-repository --yes --update ppa:ansible/ansible`
+
 `$ sudo apt install ansible`
 
 
