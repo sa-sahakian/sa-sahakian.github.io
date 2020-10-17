@@ -35,12 +35,12 @@ categories: jekyll update
 
 - How to customized the kernel in FreeBSD?
 
-. Step 1
+Step 1
     Back up the kernel in the following directory:
 
 `#cp -Rp /boot/kernel/ /boot/kernel.backup`
 
-. Step 2:
+Step 2:
     Built the custom Kernel by going to the following directory and duplicate the kernel and modify it:
 
 `## cd /usr/src/sys/amd64/conf`
