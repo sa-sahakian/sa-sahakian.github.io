@@ -9,53 +9,55 @@ categories: jekyll update
 # Custome Kernel - FreeBSD
 
 - What is Kernel?
-Kernel is the core of the operating system which is responsible for:
-. Memory and process management
-. Enforcing security controls
-.  Networking
-. Disk access
-. Scheduling
-. Interprocess communication
+    Kernel is the core of the operating system which is responsible for:
+
+        . Memory and process management
+        . Enforcing security controls
+        .  Networking
+        . Disk access
+        . Scheduling
+        . Interprocess communication
 
 - Different types of Kernels:
-. Monolithic
-. Micro
-. Hybrid
-. Nano
-. Exo
 
-Why do we need to customized Kernels?
+        . Monolithic
+        . Micro
+        . Hybrid
+        . Nano
+        . Exo
+
+- Why do we need to customized Kernels?
 
 . Support specific range of hardware
 . Faster boot time
 . Lower the memory usage
 . Increase the security
 
-How to customized the kernel in FreeBSD?
+- How to customized the kernel in FreeBSD?
 
 . Step 1
-Back up the kernel in the following directory:
+    Back up the kernel in the following directory:
 
 `#cp -Rp /boot/kernel/ /boot/kernel.backup`
 
 . Step 2:
-Built the custom Kernel by going to the following directory and duplicate the kernel and modify it:
+    Built the custom Kernel by going to the following directory and duplicate the kernel and modify it:
 
 `## cd /usr/src/sys/amd64/conf`
 
 `# cp GENERIC <MYKERNEL>`
 
 Step 3: 
-Compile the customized Kernel by going to th efollowing directory:
+    Compile the customized Kernel by going to th efollowing directory:
 
 `# cd /usr/src`
 
 `# make buildkernel KERNCONF=MYKERNEL`
 
 Step 4:
-Install the Kernel while we are in the last directory:
+    Install the Kernel while we are in the last directory:
 
 `# make installkernel KERNCONF=MYKERNEL`
 
 Step 5:
-Reboot and load the OS with the new Kernel. 
+    Reboot and load the OS with the new Kernel. 
