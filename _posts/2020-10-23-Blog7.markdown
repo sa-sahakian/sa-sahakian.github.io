@@ -8,7 +8,50 @@ categories: jekyll update
 
 # Ansible Playbooks - Part2
 
-- How to setup Ansible Playbook?
+- Ansible playbooks:
+
+Playbook is single YAML file which contain set of plays which defines a set of activities or tasks to be run on the a single host or multiple host servers.
+Some of these tasks are:
+
+1. Execute commands
+2. Run scripts
+3. Install packages
+4. Manage host operating systems 
+
+The playbook runs from top to bottom each task in order, a playbook can contain multiple plays which they orchestrate multiple machines (hosts). We can use strategies to control the default behavior. 
+
+- How to run  playbooks?
+
+To run playbooks we will need to use the following command:
+
+` ansible-playbook <playbookname.yml>`
+
+Using following flag to see detail outputs:
+
+` ansible-playbook <playbookname.yml> --verbose`
+
+
+- How to verify the playbooks?
+
+We have following options to verify the playbook:
+
+`--check`
+
+`--diff`
+
+`--list-hosts`
+
+`list-tasks`
+
+`--syntax-check`
+
+We can use `ansible-lint` for more detail and feedback on the playboos before executing them. 
+
+`ansible-lint playbooksname.yml`
+
+To see the description of each error:
+
+`ansible-lint default rules playbooksname.yml`
 
 
 
