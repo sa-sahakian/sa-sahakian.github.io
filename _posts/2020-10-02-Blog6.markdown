@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 
 
-# Custome Kernel - FreeBSD
+# Custom Kernel - FreeBSD
 
 - What is Kernel?
     Kernel is the core of the operating system which is responsible for:
