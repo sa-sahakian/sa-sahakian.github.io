@@ -1,59 +1,14 @@
 ---
 layout: post
-title:  "Blog 5"
-date:   2020-10-09 20:59:31 -0700
+title:  "Blog 7"
+date:   2020-10-23 20:59:31 -0700
 categories: jekyll update
 ---
 
 
-# Ansible Playbooks - Part1
+# Ansible Playbooks - Part2
 
-- What is Ansible and its playbook:s
+- How to setup Ansible Playbook?
 
-Ansible is automation engine to automate:
-. Cloud Provisioning
-. Configuration Management
-. Application Deployment
-. Intra Service Orchestration
-
-Ansible use simple language `YAML` in the form of Ansible playbook for automation. It doesn't required any agent installation. 
-It simply connect to the host and push out a small programs called `Ansible Modules` then execute them over SSH and remove when they are done. 
-
-
-- Server Inventory:
-Ansible use INI file to represent the manage hosts. We can add or remove hosts simply by editing this file and create different groups. We can also use dynamic inventory and pull the inventory from EC2, RackSpace, and etc... 
-
-
-- Parallel Task Execution:
-We can run commands without any additional work just by typing the command and send it to all the hists listed in the INI file:
-
-For example: 
-
-`ansible foo.example.com -m yum -a "name=httpd state=installed"`
-
-
-- Ansible Playbook:
-Playbooks can finely orchestrate multiple slices of your infrastructure topology, with very detailed control over how many machines to tackle at a time.  This is where Ansible starts to get most interesting.
-Ansible's approach to orchestration is one of finely-tuned simplicity, as we believe your automation code should make perfect sense to you years down the road and there should be very little to remember about special syntax or features.
-
-
-Sample of Playbook:
-
-- hosts: webservers
-serial: 5 # update 5 machines at a time
-roles:
-- common
-- webapp
-
-
-- How to install the Ansible in Ubuntu:
-
-`$ sudo apt update`
-
-`$ sudo apt install software-properties-common`
-
-`$ sudo apt-add-repository --yes --update ppa:ansible/ansible`
-
-`$ sudo apt install ansible`
 
 

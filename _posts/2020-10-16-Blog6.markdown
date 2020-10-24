@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Blog 6"
-date:   2020-10-09 20:59:31 -0700
+date:   2020-10-16 20:59:31 -0700
 categories: jekyll update
 ---
 
