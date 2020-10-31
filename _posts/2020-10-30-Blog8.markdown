@@ -29,27 +29,37 @@ This is a basic descripotion for different tasks from tutorialpoints.com.
  - tasks:
  All playbooks should contain tasks or a list of tasks to be executed. Tasks are a list of actions one needs to perform. A tasks field contains the name of the task. This works as the help text for the user. It is not mandatory but proves useful in debugging the playbook. Each task internally links to a piece of code called a module. A module that should be executed, and arguments that are required for the module you want to execute.
 
--handlers
+- handlers:
 Finally, we have the handlers section, where the services are declared. We define the restart apache handler that is notified from the fourth task, where the Apache template is applied.
 
 # Here is an example of the playbooks with all the mentioned YAML tags:
 
---- 
-   name: install and configure DB
-   hosts: testServer
-   become: yes
-
-   vars: 
-      oracle_db_port_value : 1521
+`---` 
    
-   tasks:
-   -name: Install the Oracle DB
-      yum: <code to install the DB>
-    
-   -name: Ensure the installed service is enabled and running
-   service:
-      name: <your service name>
+   `name: install and configure DB`
 
-  handlers:
-    - name: restart apache
-      service: name=apache2 state=restarted
+   `hosts: testServer`
+   
+   `become: yes`
+
+   `vars:`
+
+        `oracle_db_port_value : 1521`
+   
+   `tasks:`
+   
+	`-name: Install the Oracle DB`
+      
+	`yum: <code to install the DB>`
+    
+   `-name: Ensure the installed service is enabled and running`
+  
+  `service:`
+      
+      `name: <your service name>`
+
+  `handlers:`
+    
+    `- name: restart apache`
+      
+      `service: name=apache2 state=restarted`
