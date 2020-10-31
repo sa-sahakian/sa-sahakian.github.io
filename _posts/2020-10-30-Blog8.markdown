@@ -1,0 +1,63 @@
+---
+layout: post
+title:  "Blog 7"
+date:   2020-10-23 20:59:31 -0700
+categories: jekyll update
+---
+
+
+# Ansible Playbooks - Part2
+
+- Ansible playbooks:
+
+Playbook is single YAML file which contain set of plays which defines a set of activities or tasks to be run on the a single host or multiple host servers.
+Some of these tasks are:
+
+1. Execute commands
+2. Run scripts
+3. Install packages
+4. Manage host operating systems 
+
+The playbook runs from top to bottom each task in order, a playbook can contain multiple plays which they orchestrate multiple machines (hosts). We can use strategies to control the default behavior. 
+
+- How to run  playbooks?
+
+To run playbooks we will need to use the following command:
+
+` ansible-playbook <playbookname.yml>`
+
+Using following flag to see detail outputs:
+
+` ansible-playbook <playbookname.yml> --verbose`
+
+
+- How to verify the playbooks?
+
+We have following options to verify the playbook:
+
+`--check`
+
+`--diff`
+
+`--list-hosts`
+
+`list-tasks`
+
+`--syntax-check`
+
+We can use `ansible-lint` for more detail and feedback on the playboos before executing them. 
+
+`ansible-lint playbooksname.yml`
+
+To see the description of each error:
+
+`ansible-lint default rules playbooksname.yml`
+
+- Few tips and Tricks from Ansible MAN Page:
+
+1. Do things simply. Use advanced features only when necessary,
+2. Keep your playbooks, roles, inventory, and variables files in git or another version control system and make commits to the repository when you make changes.
+3. Generous use of whitespace, for example, a blank line before each block or task.
+4. Task names are optional, but extremely useful. In its output, Ansible shows you the name of each task it runs.
+5. Even with task names and explicit state, sometimes a part of a playbook or role (or inventory/variable file) needs more explanation. (we can add comment by adding # infront of the line)
+
