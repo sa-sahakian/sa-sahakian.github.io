@@ -6,58 +6,27 @@ categories: jekyll update
 ---
 
 
-# Ansible Playbooks - Part2
+# Ansible Playbooks - Part3
 
-- Ansible playbooks:
+- YAML Tags:
+Here are the differnet YAML tags:
+ 1. name
+ 2. hosts
+ 3. vars
+ 4. tasks
 
-Playbook is single YAML file which contain set of plays which defines a set of activities or tasks to be run on the a single host or multiple host servers.
-Some of these tasks are:
+This is a basic descripotion for different tasks from tutorialpoints.com. 
 
-1. Execute commands
-2. Run scripts
-3. Install packages
-4. Manage host operating systems 
+ - name:
+ This tag specifies the name of the Ansible playbook. As in what this playbook will be doing. Any logical name can be given to the playbook.
 
-The playbook runs from top to bottom each task in order, a playbook can contain multiple plays which they orchestrate multiple machines (hosts). We can use strategies to control the default behavior. 
+ - hosts:
+ This tag specifies the lists of hosts or host group against which we want to run the task. The hosts field/tag is mandatory. It tells Ansible on which hosts to run the listed tasks. The tasks can be run on the same machine or on a remote machine. One can run the tasks on multiple machines and hence hosts tag can have a group of hosts’ entry as well.
 
-- How to run  playbooks?
+ - vars:
+ Vars tag lets you define the variables which you can use in your playbook. Usage is similar to variables in any programming language.
 
-To run playbooks we will need to use the following command:
+ - tasks:
+ All playbooks should contain tasks or a list of tasks to be executed. Tasks are a list of actions one needs to perform. A tasks field contains the name of the task. This works as the help text for the user. It is not mandatory but proves useful in debugging the playbook. Each task internally links to a piece of code called a module. A module that should be executed, and arguments that are required for the module you want to execute.
 
-` ansible-playbook <playbookname.yml>`
-
-Using following flag to see detail outputs:
-
-` ansible-playbook <playbookname.yml> --verbose`
-
-
-- How to verify the playbooks?
-
-We have following options to verify the playbook:
-
-`--check`
-
-`--diff`
-
-`--list-hosts`
-
-`list-tasks`
-
-`--syntax-check`
-
-We can use `ansible-lint` for more detail and feedback on the playboos before executing them. 
-
-`ansible-lint playbooksname.yml`
-
-To see the description of each error:
-
-`ansible-lint default rules playbooksname.yml`
-
-- Few tips and Tricks from Ansible MAN Page:
-
-1. Do things simply. Use advanced features only when necessary,
-2. Keep your playbooks, roles, inventory, and variables files in git or another version control system and make commits to the repository when you make changes.
-3. Generous use of whitespace, for example, a blank line before each block or task.
-4. Task names are optional, but extremely useful. In its output, Ansible shows you the name of each task it runs.
-5. Even with task names and explicit state, sometimes a part of a playbook or role (or inventory/variable file) needs more explanation. (we can add comment by adding # infront of the line)
 
