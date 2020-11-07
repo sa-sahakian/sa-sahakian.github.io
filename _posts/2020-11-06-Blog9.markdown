@@ -5,8 +5,7 @@ date:   2020-11-06 20:59:31 -0700
 categories: jekyll update
 ---
 
-
-# Packet Filter - FreeBSD
+# Packet Filter Part 1 - FreeBSD
 
 - What is Packet filter:
 Packet filter or PF is a complete, fullfeatured firewall which has optioanl support for ALTQ (Alternate Queuing)whcih provides Quality of Service (QoS).
@@ -17,7 +16,74 @@ Packet filter or PF is a complete, fullfeatured firewall which has optioanl supp
 2. Enable it in th esystem configuration
 3. Add rules to allow or deny specific traffics (optional)
 
-- Add following line  to `rc.conf` file to enable PF.
+- Add following line  into `rc.conf` file to enable PF.
 
-`# sysrc pf_enable=yes`
+`#sysrc pf_enable=yes`
+
+- Add ruleset file and modify the `rc.conf` file. 
+
+`#pf_rules="/path/to/pf.conf"`
+
+- Enable loging for PF by adding the following line in `rc.conf` file:
+
+`#sysrc pflog_enable=yes`
+
+- To enable the LAN gateway:
+
+`#gateway_enable="YES"`
+
+- To start the PF we will need to run the following commands:
+
+`#service pf start`
+
+`#service pflog start`
+
+# Some of the usfule PFCTRL commands:
+
+
+`#pfctl -e`  To enable PF.
+
+`#pfctl -d`  To disable PF.
+
+`#pfctl -F all -f /etc/pf.conf` To flush all NAT, filter, state, and table rules and reload /etc/pf.conf.
+
+`#pfctl -s [ rules | nat | states ]` Report on the filter rules, NAT rules, or state table.
+
+`#pfctl -vnf /etc/pf.conf`  To check /etc/pf.conf for errors, but do not load ruleset.
+
+# how to create custom Ruleset?
+
+The rulesets are use to allow, deny and modify the connections. To create a custome rule set we can use the existign samples located in the following directory:
+
+`/usr/share/examples/pf/`
+
+- Sample ruleset located in the `/etc/pf.conf`:
+
+`block in all`
+
+`pass out all keep state`
+
+- To load the ruleset:
+
+`#pfctl -e ; pfctl -f /etc/pf.conf`
+
+Example: Using macros to qllow list of services:
+
+`tcp_services = "{ ssh, smtp, domain, www, pop3, auth, pop3s }"`
+
+`udp_services = "{ domain }"`
+
+`block all`
+
+`pass out proto tcp to any port $tcp_services keep state`
+
+`pass proto udp to any port $udp_services keep state`
+
+NOTE: After any ruleset modification, the rulesset needs to be loaded again by using the follwing command:
+
+`#pfctl -f /etc/pf.conf`
+
+To test the ruleset before loadign, we can use the follwing command:
+
+`#pfctl -nf /etc/pf.conf`
 
