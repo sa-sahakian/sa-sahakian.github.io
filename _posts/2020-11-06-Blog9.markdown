@@ -8,12 +8,12 @@ categories: jekyll update
 # Packet Filter Part 1 - FreeBSD
 
 - What is Packet filter:
-Packet filter or PF is a complete, fullfeatured firewall which has optioanl support for ALTQ (Alternate Queuing)whcih provides Quality of Service (QoS).
+Packet filter or PF is a complete, full featured firewall which has optional support for ALTQ (Alternate Queuing)which provides Quality of Service (QoS).
 
 - How to enable PF in FreeBSD?
 
 1. Load the kernel module 
-2. Enable it in th esystem configuration
+2. Enable it in the system configuration
 3. Add rules to allow or deny specific traffics (optional)
 
 - Add following line  into `rc.conf` file to enable PF.
@@ -38,7 +38,7 @@ Packet filter or PF is a complete, fullfeatured firewall which has optioanl supp
 
 `#service pflog start`
 
-# Some of the usfule PFCTRL commands:
+# Some of the useful PFCTRL commands:
 
 
 `#pfctl -e`  To enable PF.
@@ -53,7 +53,7 @@ Packet filter or PF is a complete, fullfeatured firewall which has optioanl supp
 
 # how to create custom Ruleset?
 
-The rulesets are use to allow, deny and modify the connections. To create a custome rule set we can use the existign samples located in the following directory:
+The rulesets are use to allow, deny and modify the connections. To create a custom rule set we can use the existing samples located in the following directory:
 
 `/usr/share/examples/pf/`
 
@@ -67,7 +67,7 @@ The rulesets are use to allow, deny and modify the connections. To create a cust
 
 `#pfctl -e ; pfctl -f /etc/pf.conf`
 
-Example: Using macros to qllow list of services:
+Example: Using macros to allow list of services:
 
 `tcp_services = "{ ssh, smtp, domain, www, pop3, auth, pop3s }"`
 
@@ -83,7 +83,6 @@ NOTE: After any ruleset modification, the rulesset needs to be loaded again by u
 
 `#pfctl -f /etc/pf.conf`
 
-To test the ruleset before loadign, we can use the follwing command:
+To test the ruleset before loading, we can use the following command:
 
 `#pfctl -nf /etc/pf.conf`
-
