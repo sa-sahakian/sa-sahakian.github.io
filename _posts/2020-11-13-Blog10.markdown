@@ -54,6 +54,6 @@ For example we can create a list and mentioning the services names which we woul
 `pass proto udp to any port $udp_services keep state`
 
 Note: 
-a. As I mentioned we have to keep the list on the top of the ruleset
-b. The fist line contains the TCP ports (services' names) which  needs to be allowed
-c. b. The fist line contains the UDP ports (services' names) which  needs to be allowed
+1. As I mentioned we have to keep the list on the top of the ruleset
+2. The fist line contains the TCP ports (services' names) which  needs to be allowed
+3. b. The fist line contains the UDP ports (services' names) which  needs to be allowed
