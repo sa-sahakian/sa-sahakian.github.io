@@ -25,7 +25,7 @@ Note: there are some sample rulesets in `/usr/share/examples/pf/`
 This is a minimal ruleset which will allow a single machine to to be connected to one network (internet).
 The firs line will block all the incoming traffics by default and second rule will allows connections created by the single machine to pass out. 
 
-Note: After making any changes in the ruleset, we will need to be loaded by using th efollwoing command:
+Note: After making any changes in the ruleset, we will need to be loaded by using the follwoing command:
 
 `# pfctl -f /etc/pf.conf`
 
