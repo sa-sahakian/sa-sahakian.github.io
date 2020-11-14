@@ -1,73 +1,47 @@
 ---
 layout: post
-title:  "Blog 9"
-date:   2020-11-06 20:59:31 -0700
+title:  "Blog 10"
+date:   2020-11-13 20:59:31 -0700
 categories: jekyll update
 ---
 
-# Packet Filter Part 1 - FreeBSD
+# Packet Filter Part 2 - FreeBSD
 
-- What is Packet filter:
-Packet filter or PF is a complete, full featured firewall which has optional support for ALTQ (Alternate Queuing)which provides Quality of Service (QoS).
+# How to manage Packet Filter:
 
-- How to enable PF in FreeBSD?
+To manage the rules in packet filter we have to create rulesets and configure it then identify the path in the `rc.conf` file. 
 
-1. Load the kernel module 
-2. Enable it in the system configuration
-3. Add rules to allow or deny specific traffics (optional)
-
-- Add following line  into `rc.conf` file to enable PF.
-
-`#sysrc pf_enable=yes`
-
-- Add ruleset file and modify the `rc.conf` file. 
-
-`#pf_rules="/path/to/pf.conf"`
-
-- Enable loging for PF by adding the following line in `rc.conf` file:
-
-`#sysrc pflog_enable=yes`
-
-- To enable the LAN gateway:
-
-`#gateway_enable="YES"`
-
-- To start the PF we will need to run the following commands:
-
-`#service pf start`
-
-`#service pflog start`
-
-# Some of the useful PFCTRL commands:
+Note: there are some sample rulesets in `/usr/share/examples/pf/`
 
 
-`#pfctl -e`  To enable PF.
+# PF ruleset:
 
-`#pfctl -d`  To disable PF.
+- To create a minimal ruleset, we will need to edit `/etc/pf.conf` file and add the following lines:
 
-`#pfctl -F all -f /etc/pf.conf` To flush all NAT, filter, state, and table rules and reload /etc/pf.conf.
-
-`#pfctl -s [ rules | nat | states ]` Report on the filter rules, NAT rules, or state table.
-
-`#pfctl -vnf /etc/pf.conf`  To check /etc/pf.conf for errors, but do not load ruleset.
-
-# how to create custom Ruleset?
-
-The rulesets are use to allow, deny and modify the connections. To create a custom rule set we can use the existing samples located in the following directory:
-
-`/usr/share/examples/pf/`
-
-- Sample ruleset located in the `/etc/pf.conf`:
-
-`block in all`
+`block in all` 
 
 `pass out all keep state`
 
-- To load the ruleset:
+This is a minimal ruleset which will allow a single machine to to be connected to one network (internet).
+The firs line will block all the incoming traffics by default and second rule will allows connections created by the single machine to pass out. 
 
-`#pfctl -e ; pfctl -f /etc/pf.conf`
+Note: After making any changes in the ruleset, we will need to be loaded by using th efollwoing command:
 
-Example: Using macros to allow list of services:
+`# pfctl -f /etc/pf.conf`
+
+
+- PF provides lists and macros which can be defined for use when creating rules. Macros can include lists and need to be defined before use.
+
+`tcp_services = "{ ssh, smtp, domain, www, pop3, auth, pop3s }"`
+
+`udp_services = "{ domain }"`
+
+Note: this list needs to be loaded at the very top section of the rules sets. 
+
+
+- PF understands port names as well as port numbers, as long as the names are listed in `/etc/services`. 
+
+For example we can create a list and mentioning the services names which we would like to allow or denied.
 
 `tcp_services = "{ ssh, smtp, domain, www, pop3, auth, pop3s }"`
 
@@ -79,10 +53,7 @@ Example: Using macros to allow list of services:
 
 `pass proto udp to any port $udp_services keep state`
 
-NOTE: After any ruleset modification, the rulesset needs to be loaded again by using the follwing command:
-
-`#pfctl -f /etc/pf.conf`
-
-To test the ruleset before loading, we can use the following command:
-
-`#pfctl -nf /etc/pf.conf`
+Note: 
+a. As I mentioned we have to keep the list on the top of the ruleset
+b. The fist line contains the TCP ports (services' names) which  needs to be allowed
+c. b. The fist line contains the UDP ports (services' names) which  needs to be allowed
