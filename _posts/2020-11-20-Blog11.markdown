@@ -5,5 +5,39 @@ date:   2020-11-20 20:59:31 -0700
 categories: jekyll update
 ---
 
-# Packet Filter Part 2 - FreeBSD
+# Multi-Processing Modules (MPMs)
+
+The Apache HTTP Server is designed to be a powerful and flexible web server that can work on a very wide variety of platforms in a range of different environments. Different platforms and different environments often require different features, or may have different ways of implementing the same feature most efficiently. Apache httpd has always accommodated a wide variety of environments through its modular design. This design allows the webmaster to choose which features will be included in the server by selecting which modules to load either at compile-time or at run-time.
+
+Apache HTTP Server 2.0 extends this modular design to the most basic functions of a web server. The server ships with a selection of Multi-Processing Modules (MPMs) which are responsible for binding to network ports on the machine, accepting requests, and dispatching children to handle the requests.
+
+- Extending the modular design to this level of the server allows two important benefits:
+
+1. Apache httpd can more cleanly and efficiently support a wide variety of operating systems. In particular, the Windows version of the server is now much more efficient, since `mpm_winnt` can use native networking features in place of the POSIX layer used in Apache httpd 1.3. This benefit also extends to other operating systems that implement specialized MPMs.
+
+2. The server can be better customized for the needs of the particular site. For example, sites that need a great deal of scalability can choose to use a threaded MPM like `worker` or `event`, while sites requiring stability or compatibility with older software can use a prefork.
+At the user level, MPMs appear much like other Apache httpd modules. The main difference is that one and only one MPM must be loaded into the server at any time. The list of available MPMs appears on the module index page.
+
+
+- Building an MPM as a static module:
+
+MPMs can be built as static modules on all platforms. A single MPM is chosen at build time and linked into the server. The server must be rebuilt in order to change the MPM.
+
+To override the default MPM choice, use the `--with-mpm=NAME` option of the configure script. NAME is the name of the desired MPM.
+
+Once the server has been compiled, it is possible to determine which MPM was chosen by using ./httpd -l. This command will list every module that is compiled into the server, including the MPM.
+
+- Building an MPM as a DSO module:
+
+On Unix and similar platforms, MPMs can be built as DSO modules and dynamically loaded into the server in the same manner as other DSO modules. Building MPMs as DSO modules allows the MPM to be changed by updating the LoadModule directive for the MPM instead of by rebuilding the server.
+
+`LoadModule mpm_prefork_module modules/mod_mpm_prefork.so`
+
+Attempting to LoadModule more than one MPM will result in a startup failure with the following error.
+
+`AH00534: httpd: Configuration error: More than one MPM loaded.`
+
+This feature is enabled using the `--enable-mpms-shared` option of the configure script. With argument all, all possible MPMs for the platform will be installed. Alternately, a list of MPMs can be specified as the argument.
+
+The default MPM, either selected automatically or specified with the `--with-mpm` option of the configure script, will be loaded in the generated server configuration file. Edit the LoadModule directive to select a different MPM.
 
