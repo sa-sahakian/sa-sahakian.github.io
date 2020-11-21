@@ -7,9 +7,10 @@ categories: jekyll update
 
 # Multi-Processing Modules (MPMs)
 
-The Apache HTTP Server is designed to be a powerful and flexible web server that can work on a very wide variety of platforms in a range of different environments. Different platforms and different environments often require different features, or may have different ways of implementing the same feature most efficiently. Apache httpd has always accommodated a wide variety of environments through its modular design. This design allows the webmaster to choose which features will be included in the server by selecting which modules to load either at compile-time or at run-time.
+It is a core module of Apache. MPM handle important core tasks such as creating network connections (binding to ports), listening for and accepting requests from clients (browsers) and creating child processes or threads to handle the requests. Because these core tasks must be handled the same way for every request, you can only have one MPM loaded at the time. EasyApache 4 prevents the installation of more than one MPM concurrently.
 
-Apache HTTP Server 2.0 extends this modular design to the most basic functions of a web server. The server ships with a selection of Multi-Processing Modules (MPMs) which are responsible for binding to network ports on the machine, accepting requests, and dispatching children to handle the requests.
+At the end of the startup phase, after the configuration has been read, after the configuration has been read, Apache’s general control is passed to a process management module i.e. Multi-Processing Module.
+One MPM is an interface between the running Apache server and underlying OS. Its main role is to optimize Apache according to the platform on which the server is running.
 
 - Extending the modular design to this level of the server allows two important benefits:
 
