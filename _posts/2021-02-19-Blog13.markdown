@@ -6,3 +6,6 @@ categories: jekyll update
 ---
 
 
+- This a qucik tutorial to use and work with GitHub in VS Code. 
+Note: this is a qucik guide line from "https://code.visualstudio.com/"
+
