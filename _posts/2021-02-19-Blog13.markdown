@@ -1,36 +1,8 @@
 ---
 layout: post
-title:  "Blog 12"
-date:   2020-12-04 20:59:31 -0700
+title:  "Blog 13"
+date:   2021-02-19 18:33:31 -0700
 categories: jekyll update
 ---
 
-# Apache Arcitecture
 
-Apache is one of the most reliable and demanded web server in the IT world. There are several key factors to increase the usage of Apache for the web servers.  
-Being an open-source application, having very talented development community, following a modular architecture, and being able to operate on multiple operating systems make this server one of a kind. 
-
-- There are two main versions of the apache with their own architectures. 
-1. Version 1.3 series
-2. Version 2.0 series 
-
-- Apache 1.3 in Unix is a process-base web server, which parent process create identical copies of itself names children. Each child can handle the processes individually which improved the server stability. Each child beehives separately and Don’t have any effect on other child. Since all the children are processing the requests separate, they can’t share the data and code together and this will cause to consume more resources.  The 1.3 series is module architecture and supports windows operation system as well.  
-
-- On the other hand, Apache 2.0 series architecture contains special module names Multiprocessing Modules or MPMs. The MPM implements a hybrid multi-process and multi-threaded server. Server used threads to process the requests, each thread contained inside process and run simultaneously. Since server is using threads and they can share data and codes then system use less resources than process base server on the other hand, any misbehavior in any threads can cause problem with the other threads. 
-
-
-# The HTTP request process:
-
-The process starts when the child process received the “accept mutex” to become listener to respond to a received TCP connection request. All requests pass through “ap_process_request_internal()” in “server/request.c”.  After accepting the request by child process, child process leaves the MPM scope and triggers the two hooks named “Pre_Connection” and “Process_Connection”. The child process reads the request headers with the procedure “Ap_Read_Request” in the “protocol.c”. After reading the HTTP header the child server status has been changed to “busy_Write” and the respond process start from hear. 
-
-# Static and Dynamic modules: 
-
-Since Apache is a modular application, modules can be complied as Dynamic Shared Object or DSOs. Modules can be run as static or dynamic. Static modules are compiled into the httpd binary when the server built but dynamic modules are included at runtime. Almost all the distributed modules in apaches are added dynamically. This is very important fact since we won’t need to recompile the httpd file after updating each module. 
-
-- There are multiple advantages and disadvantages for Static and Dynamic modules.
-
-1.	Since server process can be assembled at run time, it makes server package being more flexible. 
-2.	After installation the server packages can be extended with third party modules. 
-3.	The httpd module prototyping process is much easier.
-4.	Slower start up since the UNIX loader has to do symbol resolving
-5.	Slower execution time 
