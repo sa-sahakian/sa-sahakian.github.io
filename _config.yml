@@ -18,10 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Sako_Blogs_CIT480
+title: Sako_Blogs_CIT481
 email: sako.sahakian.939@my.csun.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  These are the weekly blogs for CIT 480 class. 
+  These are the weekly blogs for CIT 481 class. 
 baseurl: "sa-sahakian.github.io" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
