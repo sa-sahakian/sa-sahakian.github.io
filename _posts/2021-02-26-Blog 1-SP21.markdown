@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 
 
-# Terraform (Part1)#
+# Terraform (Part1)
 Note: this is a qucik guide line from "learn.hashicorp.com"
 
 - What is Terraform?
