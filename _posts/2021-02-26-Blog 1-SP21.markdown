@@ -15,6 +15,20 @@ Terraform is the infrastructure as code tool from HashiCorp. It is a tool for bu
 - Infrastructure as a code!
 It is the process of managing infrastructure in a file or files rather than manually configuring resources in a user interface. 
 The resources can be any piece of infrustructures such as VMs, Security groups, network interfaces, etc...
+At a high level, Terraform allows operators to use HCL to author files containing definitions of their desired resources on almost any provider (AWS, GCP, GitHub, Docker, etc) and automates the creation of those resources at the time of apply.
+
+- Workflow
+1. Scope
+2. Authir
+3. Initialize
+4. Plan and Apply
+
+- Advantages of Terraform:
+1. Platform Agnostic
+2. State Managment
+3. Operator Confidence
+
+
 
 - 
 
