@@ -28,7 +28,11 @@ At a high level, Terraform allows operators to use HCL to author files containin
 2. State Managment
 3. Operator Confidence
 
+- Platform Agnostic:
+Terraform can manage a heterogenous environment with the same workflow by creating a configuration file to fit the needs of your project or organization.
 
+- State Managment: 
+Terraform creates a state file when a project is first initialized. Terraform uses this local state to create plans and make changes to your infrastructure. 
 
-- 
-
+- Operator Confidence:
+The workflow built into Terraform aims to instill confidence in users by promoting easily repeatable operations and a planning phase to allow users to ensure the actions taken by Terraform will not cause disruption in their environment. 
