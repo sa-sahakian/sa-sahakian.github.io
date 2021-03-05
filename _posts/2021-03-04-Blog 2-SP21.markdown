@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Blog 2-SP21"
+date:   2021-03-04 18:33:31 -0700
+categories: jekyll update
+---
+
+
+# Terraform (Part2)
+Note: this is a qucik guide line from "learn.hashicorp.com"
+
