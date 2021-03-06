@@ -17,17 +17,17 @@ After downloading Terraform, unzip the package. Terraform runs as a single binar
 - To install on MAC or Linux:
 list of locations in your PATH:
 
-# echo PATH
+`# echo PATH`
 
 Move the Terraform binary to one of the listed locations:
 
-# mv ~/Downloads/terraform /usr/local/bin/
+`# mv ~/Downloads/terraform /usr/local/bin/`
 
 Verify that the installation worked:
 
-# terraform -help
+`# terraform -help`
 
 If you use either bash or zsh you can enable tab completion for Terraform commands:
 
-# terraform -install-autocomplete
+`# terraform -install-autocomplete`
 
