@@ -1,33 +1,9 @@
 ---
 layout: post
-title:  "Blog 2-SP21"
-date:   2021-03-04 18:33:31 -0700
+title:  "Blog 3-SP21"
+date:   2021-03-12 18:33:31 -0700
 categories: jekyll update
 ---
 
 
 # Terraform (Part2)
-Note: this is a qucik guide line from "learn.hashicorp.com"
-
-- Terraform Installation:
-To use Terraform you will need to install it. HashiCorp distributes Terraform as a binary package. You can also install Terraform using popular package managers.
-To install Terraform, find the appropriate package for your system and download it as a zip archive.
-After downloading Terraform, unzip the package. Terraform runs as a single binary named terraform. Any other files in the package can be safely removed and Terraform will still function. Finally, make sure that the terraform binary is available on your PATH. This process will differ depending on your operating system.
-
-- To install on MAC or Linux:
-list of locations in your PATH:
-
-`# echo PATH`
-
-Move the Terraform binary to one of the listed locations:
-
-`# mv ~/Downloads/terraform /usr/local/bin/`
-
-Verify that the installation worked:
-
-`# terraform -help`
-
-If you use either bash or zsh you can enable tab completion for Terraform commands:
-
-`# terraform -install-autocomplete`
-
