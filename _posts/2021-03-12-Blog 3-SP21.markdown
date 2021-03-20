@@ -7,3 +7,46 @@ categories: jekyll update
 
 
 # Terraform (Part2)
+Note: this is a qucik guide line from "learn.hashicorp.com"
+
+- Prerequisites:
+1. An AWS accounts
+2. AWS CLI installed
+3. AWS credentials configured
+
+Note: Find the AWS access key and Secret access key from AWS portal. 
+
+After entering the requested information configuration process creates a file `~/.aws/credentials` or `%UserProfile%\.aws\credentials`
+
+- Write Configuration:
+We will need to create `Configuration` to write the configuration to lunch a single AWS EC2 instance.
+
+To do this, we will first create a directory and create a file to hold the configuration code. 
+
+` touch main.tf`
+
+- Here is the sample configuration code to create a single EC2:
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+  }
+}
+
+provider "aws" {
+  profile = "default"
+  region  = "us-west-2"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-830c94e3"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleInstance"
+  }
+}
+
