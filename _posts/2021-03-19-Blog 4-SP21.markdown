@@ -53,3 +53,11 @@ The resource block has two strings before the block:
 Initializing a configuration directory downloads and installs providers used in the configuration, which in this case is the aws provider. Subsequent commands will use local settings and data during initialization.
 
 Note: We will need to initialize the directory when we create a new configuration or check out an existing one. 
+
+Command to initilize: `terraform init`
+
+- Format and Validation:
+
+`terraform fmt` command automatically updates configurations in the current directory for easy readability and consistency.
+
+`terraform validate` command will check and report errors within modules, attribute names, and value types.
