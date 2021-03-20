@@ -6,4 +6,26 @@ categories: jekyll update
 ---
 
 
-# Terraform (Part2)
+# Terraform (Part4)
+
+- Terraform Block:
+The terraform {} block is required so Terraform knows which provider to download from the Terraform Registry.
+
+terraform {
+
+  required_providers {
+
+    aws = {
+
+      source  = "hashicorp/aws"
+
+      version = "~> 3.27"
+
+    }
+
+  }
+
+}
+
+Note: The `hashicorp/aws` is shorhand for `registry.terraform.io/hashicorp/aws`.
+
