@@ -27,5 +27,29 @@ terraform {
 
 }
 
-Note: The `hashicorp/aws` is shorhand for `registry.terraform.io/hashicorp/aws`.
+Note: 
+. The `hashicorp/aws` is shorhand for `registry.terraform.io/hashicorp/aws`.
+. If the version is not specified, Terraform will download the most recent provider during the installation. 
 
+- Provider :
+The provider block configures the named provider, which is responsible for creating and managing resources. A provider is a plugin that Terraform uses to translate the API interactions with the service. A provider is responsible for understanding API interactions and exposing resources. 
+
+- Profile: 
+The profile attribute in your provider block refers Terraform to the AWS credentials stored in your AWS Config File, which you created when you configured the AWS CLI. 
+
+Note: HashiCorp recommends that you never hard-code credentials into *.tf configuration files. We are explicitly defining the default AWS config profile here to illustrate how Terraform should access sensitive credentials.
+
+- Resources:
+
+The resource block defines a piece of infrastructure. A resource might be a physical component such as an EC2 instance, or it can be a logical resource such as a Heroku application.
+
+The resource block has two strings before the block: 
+
+1. The resource type  
+2. The resource name 
+
+- Terraform init:
+
+Initializing a configuration directory downloads and installs providers used in the configuration, which in this case is the aws provider. Subsequent commands will use local settings and data during initialization.
+
+Note: We will need to initialize the directory when we create a new configuration or check out an existing one. 
