@@ -28,25 +28,40 @@ To do this, we will first create a directory and create a file to hold the confi
 - Here is the sample configuration code to create a single EC2:
 
 terraform {
+
   required_providers {
+
     aws = {
+
       source  = "hashicorp/aws"
+
       version = "~> 3.27"
+
     }
+
   }
+
 }
 
 provider "aws" {
+
   profile = "default"
+
   region  = "us-west-2"
+
 }
 
 resource "aws_instance" "example" {
+
   ami           = "ami-830c94e3"
+
   instance_type = "t2.micro"
 
   tags = {
+
     Name = "ExampleInstance"
+
   }
+  
 }
 
