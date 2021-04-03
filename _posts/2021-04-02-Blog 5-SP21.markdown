@@ -7,3 +7,10 @@ categories: jekyll update
 
 
 # Terraform (Part5)
+
+- Apply the Configuration:
+
+After validating the configuration by running `terraform validate` we will need to run `terraform apply`. 
+This will display the execution plan and discribe which action terraform will take inorder to change real infrustructure to match the configuration. 
+
+Note: Some of the valuse are know but some won't be known until the resource is created. 
