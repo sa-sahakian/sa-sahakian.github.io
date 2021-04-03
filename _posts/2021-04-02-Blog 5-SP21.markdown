@@ -1,63 +1,9 @@
 ---
 layout: post
-title:  "Blog 4-SP21"
-date:   2021-03-19 18:33:31 -0700
+title:  "Blog 5-SP21"
+date:   2021-04-02 18:33:31 -0700
 categories: jekyll update
 ---
 
 
-# Terraform (Part4)
-
-- Terraform Block:
-The terraform {} block is required so Terraform knows which provider to download from the Terraform Registry.
-
-terraform {
-
-  required_providers {
-
-    aws = {
-
-      source  = "hashicorp/aws"
-
-      version = "~> 3.27"
-
-    }
-
-  }
-
-}
-
-Note: 
-. The `hashicorp/aws` is shorhand for `registry.terraform.io/hashicorp/aws`.
-. If the version is not specified, Terraform will download the most recent provider during the installation. 
-
-- Provider :
-The provider block configures the named provider, which is responsible for creating and managing resources. A provider is a plugin that Terraform uses to translate the API interactions with the service. A provider is responsible for understanding API interactions and exposing resources. 
-
-- Profile: 
-The profile attribute in your provider block refers Terraform to the AWS credentials stored in your AWS Config File, which you created when you configured the AWS CLI. 
-
-Note: HashiCorp recommends that you never hard-code credentials into *.tf configuration files. We are explicitly defining the default AWS config profile here to illustrate how Terraform should access sensitive credentials.
-
-- Resources:
-
-The resource block defines a piece of infrastructure. A resource might be a physical component such as an EC2 instance, or it can be a logical resource such as a Heroku application.
-
-The resource block has two strings before the block: 
-
-1. The resource type  
-2. The resource name 
-
-- Terraform init:
-
-Initializing a configuration directory downloads and installs providers used in the configuration, which in this case is the aws provider. Subsequent commands will use local settings and data during initialization.
-
-Note: We will need to initialize the directory when we create a new configuration or check out an existing one. 
-
-Command to initilize: `terraform init`
-
-- Format and Validation:
-
-`terraform fmt` command automatically updates configurations in the current directory for easy readability and consistency.
-
-`terraform validate` command will check and report errors within modules, attribute names, and value types.
+# Terraform (Part5)
