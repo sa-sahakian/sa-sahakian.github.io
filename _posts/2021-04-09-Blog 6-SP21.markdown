@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "Blog 6-SP21"
+date:   2021-04-09 23:47:31 -0700
+categories: jekyll update
+---
+
+
+# Terraform (Part6)
+
+- Apply the Configuration:
+
+After validating the configuration by running `terraform validate` we will need to run `terraform apply`. 
+This will display the execution plan and discribe which action terraform will take inorder to change real infrustructure to match the configuration. 
+
+Note: Some of the valuse are know but some won't be known until the resource is created. 
+
+Now, Terraform will wait for the confirmation `yes` to confirm the process and execute the plan. 
+
+- Inspecting the state:
+After applying the configuration the data will be saved in `terraform.tfstate`. This is an important file and needs to be saved in a secure place. 
+to inspect the current state we can use `terraform show`.
+
+
+- Apply changes:
+We may need to make changes after creating the initial configuration. To do this we can make changes by adding `+` and/or `-` infront of the item and run `terraform apply`.
+
+-Destroy the configuration:
+We can destroy the configuration whcih was built by `terrafomr apply`. To desroy a configuration we will need to run `terraform destroy`. This will only destroy the configuration specified not all configuration. This command will ask to confirm by clicking on `yes`. 
+
+
