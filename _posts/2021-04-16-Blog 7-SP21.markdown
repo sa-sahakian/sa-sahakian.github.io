@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 
 
-# Terraform (Part8)
+# Terraform (Part7)
 
 - Apply the Configuration:
 

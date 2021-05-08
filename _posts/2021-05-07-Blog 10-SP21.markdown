@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Blog 8-SP21"
-date:   2021-04-23 23:47:31 -0700
+title:  "Blog 10-SP21"
+date:   2021-05-07 23:47:31 -0700
 categories: jekyll update
 ---
 
 
-# Terraform (Part8)
+# Terraform (Part10)
 
 - Apply the Configuration:
 
